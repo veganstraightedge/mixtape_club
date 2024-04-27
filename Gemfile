@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').chomp
 
 # app server
-gem 'rails'
 gem 'bootsnap', require: false
+gem 'rails'
 
 # database
 gem 'pg'
@@ -14,11 +14,11 @@ gem 'puma'
 
 # assets
 gem 'bootstrap'
+gem 'importmap-rails'
 gem 'sassc-rails'
 gem 'sprockets-rails'
-gem 'importmap-rails'
-gem 'turbo-rails'
 gem 'stimulus-rails'
+gem 'turbo-rails'
 
 # JSON views
 gem 'jbuilder'
@@ -59,6 +59,7 @@ gem 'rack-contrib'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
+  gem 'debug', platforms: %i[ mri windows ]
   gem 'dotenv-rails'
   gem 'erb_lint', require: false
   gem 'factory_bot_rails'
@@ -76,11 +77,6 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-end
-
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri windows ]
 end
 
 # windows dev

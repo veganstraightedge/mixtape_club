@@ -1,0 +1,132 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-capybara
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/20230628052836_init_schema.rb'
+    - 'vendor/**/*'
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/LineLength:
+  Exclude:
+    - 'db/**/*'
+
+# This is too aggressive with our use of Seattle.rb style lack of parens on method calls
+# E.g., return redirect_to [:articles]
+# Rubocop thinks that `redirect_to` is a collection and `:articles` is a hash key
+Layout/SpaceBeforeBrackets:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 74
+
+Metrics/BlockLength:
+  Max: 99
+  Exclude:
+    - 'config/routes.rb'
+
+Metrics/ClassLength:
+  Max: 135
+
+Metrics/CyclomaticComplexity:
+  Max: 13
+
+Metrics/MethodLength:
+  Max: 31
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/ParameterLists:
+  Max: 6
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# TODO: https://docs.rubocop.org/rubocop-rails/cops_rails.html#railsenvironmentvariableaccess
+#       Consider using `Rails.application.config.foo` instead of `ENV["FOO"]`
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+
+# Using `puts` is allowed in these files
+Rails/Output:
+  Exclude:
+    - 'app/lib/code_archiver.rb'
+    - 'db/seeds.rb'
+
+Rails/TimeZone:
+  Exclude:
+    - 'script/*'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/system/*'
+
+RSpec/ExampleLength:
+  Max: 14
+  Exclude:
+    - 'spec/system/*'
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 5
+  Exclude:
+    - 'spec/system/*'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/MixinUsage:
+  Exclude:
+    - 'script/*'
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false
+
+# For now we disable this, since explicit hash value sounds better to use
+Style/HashSyntax:
+  Enabled: false
+
+# For now we disable this, since I prefer explicit block name
+Naming/BlockForwarding:
+  Enabled: false
+
+# We don't translate admin flash message for now
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+# Remove once we won,t have commented tests
+RSpec/NoExpectationExample:
+  Enabled: false
+
+# If we don,t care about explicit type, then remove this and fix errors
+RSpecRails/InferredSpecType:
+  Enabled: false

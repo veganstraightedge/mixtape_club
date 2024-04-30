@@ -42,6 +42,10 @@ Rails.application.routes.draw do
   get 'settings',               to: redirect('settings/profile'), as: :settings
   get 'settings/profile',       to: 'settings#profile',           as: :profile_settings
 
+  # Administrivia
+  get 'terms',   to: 'about#terms',   as: :terms
+  get 'privacy', to: 'about#privacy', as: :privacy
+
   # Health check page
   get 'up', to: 'rails/health#show', as: :rails_health_check
 end

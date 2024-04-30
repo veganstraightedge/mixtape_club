@@ -24,8 +24,8 @@
 
   <footer class='py-5 px-3 text-secondary text-center'>
     <ul class='list-inline'>
-      <li class='list-inline-item'><%= link_to 'Terms',   ':terms',   class: 'text-secondary' %></li>
-      <li class='list-inline-item'><%= link_to 'Privacy', ':privacy', class: 'text-secondary' %></li>
+      <li class='list-inline-item'><%= link_to 'Terms',   :terms,   class: 'text-secondary' %></li>
+      <li class='list-inline-item'><%= link_to 'Privacy', :privacy, class: 'text-secondary' %></li>
 
       <% if Current.user %>
         <li class='list-inline-item'><%= link_to 'Sign out', :destroy_user_session, class: 'text-secondary' %></li>

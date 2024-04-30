@@ -9,6 +9,9 @@ brew 'rbenv' unless system 'command -v ruby-install > /dev/null 2>&1'
 tap 'heroku/brew'
 brew 'heroku'
 
+# Active Storage images
+brew 'libvips'
+
 # Active Storage PDF previews
 cask 'xquartz'
 brew 'mupdf'

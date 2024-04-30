@@ -14,6 +14,7 @@ gem 'puma'
 
 # UI framework getbootstrap.com
 gem 'bootstrap'
+gem 'bootstrap-icons-helper'
 gem 'sassc-rails'
 
 # JS hotwired.dev

@@ -24,9 +24,8 @@
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>
           <% end %>
 
-          <%= link_to "Current.user.path", class: 'link-dark text-decoration-none ms-2' do %>
-            <%#= avatar_image_tag user: Current.user, width: 28, shadow: false %>
-            [X]
+          <%= link_to Current.user.path, class: 'text-decoration-none ms-2' do %>
+            <%= avatar_image_tag user: Current.user, width: 28, shadow: false %>
           <% end %>
 
         <% else %>

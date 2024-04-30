@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :lockable, :recoverable, :registerable,
          :rememberable, :timeoutable, :validatable
 
+  has_one_attached :avatar
+
   validates :password,
             presence:  true,
             on:        :create,

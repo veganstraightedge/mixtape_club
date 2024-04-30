@@ -21,7 +21,6 @@
             <fieldset class='border p-3 mb-5 bg-light'>
               <legend class='form-text'>Profile</legend>
 
-              <% if false %>
               <%= form.label :avatar, class: 'form-label' %>
               <div class='row mb-3'>
                 <% if Current.user.avatar.attached? %>
@@ -38,7 +37,6 @@
                   <% end %>
                 </div>
               </div>
-              <% end %>
 
               <%= render 'forms/labeled_text_field', form: form, name: :name,     autocomplete: :name %>
               <%= render 'forms/labeled_text_field', form: form, name: :pronouns, autocomplete: :sex %>

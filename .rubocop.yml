@@ -13,6 +13,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'vendor/**/*'
+    - 'bin/*'
 
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table

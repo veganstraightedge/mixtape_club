@@ -59,7 +59,7 @@ gem 'rack-contrib'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
-  gem 'debug', platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[mri windows]
   gem 'dotenv-rails'
   gem 'erb_lint', require: false
   gem 'factory_bot_rails'

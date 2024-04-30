@@ -9,6 +9,9 @@ brew 'rbenv' unless system 'command -v ruby-install > /dev/null 2>&1'
 tap 'heroku/brew'
 brew 'heroku'
 
+# Background jobs (Sidekiq) including Active Storage previews, etc
+brew 'redis'
+
 # Active Storage images
 brew 'libvips'
 

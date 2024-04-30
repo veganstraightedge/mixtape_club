@@ -12,10 +12,12 @@ gem 'pg'
 # webserver
 gem 'puma'
 
-# assets
+# UI framework getbootstrap.com
 gem 'bootstrap'
-gem 'importmap-rails'
 gem 'sassc-rails'
+
+# JS hotwired.dev
+gem 'importmap-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'

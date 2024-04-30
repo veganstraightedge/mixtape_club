@@ -9,6 +9,6 @@ test:
 amazon:
   service:           S3
   region:            us-west-2
-  bucket:            <%= ENV.fetch 'AWS_S3_BUCKET',        'mixtapeclub-production' %>
-  access_key_id:     <%= ENV.fetch 'AWS_ACCESS_KEY_ID,     'TODO' %>
-  secret_access_key: <%= ENV.fetch 'AWS_SECRET_ACCESS_KEY, 'TODO' %>
+  bucket:            <%= ENV.fetch 'AWS_S3_BUCKET',         'mixtapeclub-production' %>
+  access_key_id:     <%= ENV.fetch 'AWS_ACCESS_KEY_ID',     'TODO' %>
+  secret_access_key: <%= ENV.fetch 'AWS_SECRET_ACCESS_KEY', 'TODO' %>

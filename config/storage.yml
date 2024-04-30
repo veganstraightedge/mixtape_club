@@ -11,4 +11,4 @@ amazon:
   access_key_id:     <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region:            us-west-2
-  bucket:            mixtapeclub
+  bucket:            <%= ENV.fetch 'AWS_S3_BUCKET', 'mixtapeclub-production' %>

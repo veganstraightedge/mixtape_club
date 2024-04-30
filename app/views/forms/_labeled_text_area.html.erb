@@ -1,0 +1,26 @@
+<% autocomplete ||= nil %>
+<% autofocus    ||= false %>
+<% label        ||= nil %>
+<% note         ||= nil %>
+<% placeholder  ||= nil %>
+<% rows         ||= nil %>
+
+<% height = (rows || 5) * 30 %>
+<% style  = "height: #{height}px" %>
+
+<div class='form-floating mb-3'>
+  <%= form.text_area name,
+                     autocomplete: (autocomplete || 'new-password'),
+                     autofocus:    autofocus,
+                     placeholder:  (placeholder || name),
+                     class:        'form-control form-control-lg',
+                     style:        style %>
+
+  <%= form.label     name %>
+
+  <% if note.present? %>
+    <p class='form-text mb-3'>
+      <%= note %>
+    </p>
+  <% end %>
+</div>

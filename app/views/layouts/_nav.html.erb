@@ -1,0 +1,42 @@
+<header class="p-3 mb-3 border-bottom">
+  <div class='container-fluid'>
+    <div class="d-flex flex-wrap align-items-center justify-content-start">
+      <%= link_to :root, class: 'd-flex align-items-center me-1 me-md-3 mb-2 mb-md-0 text-dark text-decoration-none' do %>
+        <%#= bootstrap_icon 'file-earmark-image', height: 32, fill: '#444' %>
+        Mixtape Club
+      <% end %>
+
+      <ul class='nav mb-2 justify-content-center mb-md-0'>
+        <% if Current.user.present? %>
+          <li><%= link_to 'New', ":new_post", class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %></li>
+
+          <li>
+            <%# if Current.user.posts.unscoped.draft.present? %>
+              <%= link_to 'Drafts', ":drafts", class: 'btn btn-outline-secondary btn-sm mt-1' %>
+            <%# end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class='ms-auto'>
+        <% if Current.user.present? %>
+          <%= link_to ":settings", class: 'link-dark text-decoration-none ms-2' do %>
+            <%#= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>
+            Settings
+          <% end %>
+
+          <%= link_to "Current.user.path", class: 'link-dark text-decoration-none ms-2' do %>
+            <%#= avatar_image_tag user: Current.user, width: 28, shadow: false %>
+            [X]
+          <% end %>
+
+        <% else %>
+
+          <%= link_to 'Sign in',  :signin, class: 'btn' %>
+          <%= link_to 'SIGN UP',  :signup, class: 'btn btn-primary btn-sm' %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</header>

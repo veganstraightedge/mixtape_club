@@ -35,8 +35,8 @@ gem 'rubypants'        # for smart quotes
 gem 'sterile'          # for slugs
 gem 'stringex'         # for Markdown header IDs processing
 
-# auth
-gem 'bcrypt'
+# authentication
+gem 'devise'
 
 # pagination
 gem 'kaminari'

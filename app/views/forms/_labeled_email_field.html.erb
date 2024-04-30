@@ -1,0 +1,21 @@
+<% autocomplete ||= nil %>
+<% autofocus    ||= false %>
+<% label        ||= nil %>
+<% note         ||= nil %>
+<% placeholder  ||= nil %>
+
+<div class='form-floating mb-3'>
+  <%= form.email_field name,
+                       autocomplete: 'email',
+                       autofocus:    autofocus,
+                       placeholder:  (placeholder || 'me@example.com'),
+                       class:        'form-control form-control-lg' %>
+
+  <%= form.label       name %>
+
+  <% if note.present? %>
+    <p class='form-text mb-3'>
+      <%= note %>
+    </p>
+  <% end %>
+</div>

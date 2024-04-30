@@ -1,0 +1,7 @@
+.form-actions input[type=submit] {
+  @extend .mt-3        !optional;
+  @extend .mb-5        !optional;
+  @extend .btn         !optional;
+  @extend .btn-primary !optional;
+  @extend .btn-lg      !optional;
+}

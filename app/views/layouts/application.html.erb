@@ -13,6 +13,11 @@
 </head>
 
 <body>
-  <%= yield %>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/alerts' %>
+
+  <main class='my-5'>
+    <%= yield %>
+  </main>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<% label ||= nil %>
+<% note  ||= nil %>
+
+<div class='mb-3 text-end'>
+  <%= form.submit (label || 'Save'),
+                  class: 'btn btn-primary btn-lg' %>
+
+  <% if note.present? %>
+    <p class='form-text mb-3'>
+      <%= note %>
+    </p>
+  <% end %>
+</div>

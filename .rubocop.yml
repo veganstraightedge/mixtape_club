@@ -40,6 +40,9 @@ Metrics/MethodLength:
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Rails/TimeZone:
   Exclude:
     - script/*

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # Auth
+  # Authentication
   devise_for :user,
-             path:        '/',
-             path_names:  {
+             path:       '/',
+             path_names: {
                confirmation: 'confirm',
                password:     'reset',
                registration: 'register',
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
                sign_out:     'signout'
              }
 
+  # Prettier authentication routes
   devise_scope :user do
     get 'signup',  to: 'devise/registrations#new'
     get 'signin',  to: 'devise/sessions#new'
@@ -27,6 +28,12 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'dashboard#index', as: :authenticated_root
   end
+
+  # Profile
+  get '@:username', to: 'users#show', as: :profile
+  get '@',          to: redirect('profile')
+  get 'users/:id',  to: redirect('profile')
+  get 'profile',    to: 'users#show'
 
   # Health check page
   get 'up', to: 'rails/health#show', as: :rails_health_check

@@ -38,6 +38,7 @@ gem 'stringex'         # for Markdown header IDs processing
 
 # authentication
 gem 'devise'
+gem 'valid_email2' # validates user's email
 
 # pagination
 gem 'kaminari'

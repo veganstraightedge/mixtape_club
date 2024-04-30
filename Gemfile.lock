@@ -443,6 +443,9 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    valid_email2 (5.2.3)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     warden (1.2.9)
       rack (>= 2.0.9)
     webrick (1.8.1)
@@ -511,6 +514,7 @@ DEPENDENCIES
   stringex
   turbo-rails
   tzinfo-data
+  valid_email2
 
 RUBY VERSION
    ruby 3.3.1p55

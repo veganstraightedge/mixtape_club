@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'up', to: 'rails/health#show', as: :rails_health_check
-
-  root 'home#index'
-
   # Auth
   devise_for :user,
              path:        '/',
@@ -20,7 +16,18 @@ Rails.application.routes.draw do
     get 'signin',  to: 'devise/sessions#new'
     get 'signout', to: 'devise/sessions#destroy'
     get 'forgot',  to: 'devise/passwords#new'
-
-    get 'settings/account', to: 'devise/registrations#edit', as: :account_settings
   end
+
+  # Homepage for signed-in users
+  unauthenticated do
+    root 'home#index'
+  end
+
+  # Homepage for not signed-in users
+  authenticated :user do
+    root 'dashboard#index', as: :authenticated_root
+  end
+
+  # Health check page
+  get 'up', to: 'rails/health#show', as: :rails_health_check
 end

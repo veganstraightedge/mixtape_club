@@ -137,8 +137,6 @@ GEM
     dotenv-rails (3.1.0)
       dotenv (= 3.1.0)
       railties (>= 6.1)
-    down (5.4.2)
-      addressable (~> 2.8)
     drb (2.2.1)
     erb_lint (0.5.0)
       activesupport
@@ -451,7 +449,6 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
-  down
   erb_lint
   factory_bot_rails
   fasterer

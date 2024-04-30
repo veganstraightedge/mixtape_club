@@ -43,9 +43,6 @@ gem 'kaminari'
 gem 'aws-sdk-s3', require: false
 gem 'image_processing'
 
-# syndication
-gem 'down' # downloading images from ActiveStorage/S3
-
 # job queue using Active Job
 gem 'sidekiq'
 

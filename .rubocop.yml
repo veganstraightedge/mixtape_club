@@ -69,4 +69,5 @@ Style/OpenStructUse:
   Enabled: false
 
 Style/HashSyntax:
-  Enabled: false
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: consistent

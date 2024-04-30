@@ -354,6 +354,10 @@ GEM
       rubocop (~> 1.41)
     rubocop-factory_bot (2.25.1)
       rubocop (~> 1.41)
+    rubocop-i18n (3.0.0)
+      rubocop (~> 1.0)
+    rubocop-md (1.2.2)
+      rubocop (>= 1.0)
     rubocop-performance (1.21.0)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
@@ -369,6 +373,8 @@ GEM
       rubocop-rspec_rails (~> 2.28)
     rubocop-rspec_rails (2.28.3)
       rubocop (~> 1.40)
+    rubocop-thread_safety (0.5.1)
+      rubocop (>= 0.90.0)
     ruby-graphviz (1.2.5)
       rexml
     ruby-progressbar (1.13.0)
@@ -471,9 +477,12 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-capybara
+  rubocop-i18n
+  rubocop-md
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  rubocop-thread_safety
   rubypants
   sassc-rails
   selenium-webdriver

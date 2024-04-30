@@ -65,12 +65,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
 
-  # codestyle guide and linting
-  gem 'rubocop', require: false
-  gem 'rubocop-capybara', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  # code linting and formatting
+  gem 'rubocop',               require: false
+  gem 'rubocop-capybara',      require: false
+  gem 'rubocop-i18n',          require: false
+  gem 'rubocop-md',            require: false
+  gem 'rubocop-performance',   require: false
+  gem 'rubocop-rails',         require: false
+  gem 'rubocop-rspec',         require: false
+  gem 'rubocop-thread_safety', require: false
 end
 
 # windows dev

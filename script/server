@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# script/server: Launch the application and any extra required processes locally
+
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('..', __dir__)
+
+def system! *args
+  system(*args) || abort("\n==> Command #{args} failed")
+end
+
+chdir APP_ROOT do
+  puts '==> README: open http://localhost:3000 in your browser after server is started'
+
+  puts '==> Starting Server'
+  system! 'bundle exec rails server -p 3000'
+  puts
+end

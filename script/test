@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+# script/test: Run test suite for application.
+#              Optionally pass in a path to an individual
+#              test path or file to run a group/single test
+
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('..', __dir__)
+
+def system! *args
+  system(*args) || abort("\n==> Command #{args} failed")
+end
+
+chdir APP_ROOT do
+  # print output at the start of test run
+  puts "==> Tests started at: #{Time.now.strftime('%H:%M:%S')}"
+
+  # run tests
+  if ARGV[0].nil?
+    system! 'bundle exec rspec'
+
+    puts '==> Running Rubocop…'
+    system! 'bundle exec rubocop'
+  else
+    # pass arguments to test call. This is useful for calling a single test.
+    system! "bundle exec rspec #{ARGV[0]}"
+
+    puts "==> Running Rubocop on file: #{ARGV[0]}"
+    system! "bundle exec rubocop #{ARGV[0]}"
+  end
+
+  puts "==> Tests finished at: #{Time.now.strftime('%H:%M:%S')}"
+end

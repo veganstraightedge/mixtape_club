@@ -9,4 +9,38 @@ class UsersController < ApplicationController
 
     redirect_to :root if @user.blank?
   end
+
+  # /settings
+  def update
+    form_name = params[:form_name]
+
+    if Current.user.update(user_params)
+      redirect_to Current.user.path, notice: "#{form_name.capitalize} settings saved."
+    else
+      render "/settings/#{form_name}"
+    end
+  end
+
+  private
+
+  def user_params
+    params
+      .require(:user)
+      .permit(
+        :adult_content,
+        :avatar,
+        :bio,
+        :birthday,
+        :email,
+        :location,
+        :name,
+        :password,
+        :password_confirmation,
+        :pronouns,
+        :show_age,
+        :website,
+        :username,
+        identity_documents: []
+      )
+  end
 end

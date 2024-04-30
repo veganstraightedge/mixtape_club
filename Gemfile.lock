@@ -504,6 +504,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-thread_safety
+  ruby-vips
   rubypants
   sassc-rails
   selenium-webdriver

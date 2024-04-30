@@ -13,7 +13,8 @@ brew 'heroku'
 brew 'redis'
 
 # Active Storage images
-brew 'libvips'
+brew 'glib', link: true
+brew 'vips'
 
 # Active Storage PDF previews
 cask 'xquartz'

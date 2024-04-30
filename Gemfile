@@ -46,6 +46,7 @@ gem 'kaminari'
 # uploads using Active Storage
 gem 'aws-sdk-s3', require: false
 gem 'image_processing'
+gem 'ruby-vips'
 
 # job queue using Active Job
 gem 'sidekiq'

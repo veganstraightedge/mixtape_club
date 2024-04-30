@@ -48,4 +48,7 @@ Rails.application.routes.draw do
 
   # Health check page
   get 'up', to: 'rails/health#show', as: :rails_health_check
+
+  # ActiveStorage Attachments
+  resources :attachments, only: :destroy
 end

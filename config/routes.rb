@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'signin',  to: 'devise/sessions#new'
     get 'signout', to: 'devise/sessions#destroy'
     get 'forgot',  to: 'devise/passwords#new'
+
+    get 'settings/account', to: 'devise/registrations#edit', as: :account_settings
   end
 
   # Homepage for signed-in users
@@ -34,6 +36,11 @@ Rails.application.routes.draw do
   get '@',          to: redirect('profile')
   get 'users/:id',  to: redirect('profile')
   get 'profile',    to: 'users#show'
+
+  # Users
+  resources :users, only: :update
+  get 'settings',               to: redirect('settings/profile'), as: :settings
+  get 'settings/profile',       to: 'settings#profile',           as: :profile_settings
 
   # Health check page
   get 'up', to: 'rails/health#show', as: :rails_health_check

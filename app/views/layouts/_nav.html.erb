@@ -20,7 +20,7 @@
 
       <div class='ms-auto'>
         <% if Current.user.present? %>
-          <%= link_to ":settings", class: 'text-decoration-none ms-2' do %>
+          <%= link_to :settings, class: 'text-decoration-none ms-2' do %>
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>
           <% end %>
 

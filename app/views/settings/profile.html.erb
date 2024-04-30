@@ -1,0 +1,57 @@
+<div class='container'>
+  <%= render 'forms/errors', resource: Current.user %>
+
+  <div class='row px-3'>
+    <div class='col-12 mx-auto'>
+
+      <h1 class='display-4'>
+        Settings<span class='text-secondary'>:</span> <b>Profile</b>
+      </h1>
+
+      <div class='row mt-5'>
+        <div class='col-12 col-md-3 mb-5'>
+          <%= render 'settings/subnav' %>
+        </div>
+
+        <div class='col-12 col-md-9 mb-5'>
+
+          <%= form_with model: Current.user do |form| %>
+            <%= hidden_field_tag :form_name, :profile %>
+
+            <fieldset class='border p-3 mb-5 bg-light'>
+              <legend class='form-text'>Profile</legend>
+
+              <% if false %>
+              <%= form.label :avatar, class: 'form-label' %>
+              <div class='row mb-3'>
+                <% if Current.user.avatar.attached? %>
+                  <div class='col-2'>
+                    <%= avatar_image_tag user: Current.user, width: 100 %>
+                  </div>
+                <% end %>
+
+                <div class='col-<%= Current.user.avatar.attached? ? 10 : 12 %>'>
+                  <%= form.file_field :avatar, accept: '.jpg, .jpeg, .png, .gif', class: 'form-control form-control-lg' %>
+
+                  <% if Current.user.avatar.attached? %>
+                    <%= button_to_delete_attachment Current.user.avatar, classes: 'mt-2' %>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+
+              <%= render 'forms/labeled_text_field', form: form, name: :name,     autocomplete: :name %>
+              <%= render 'forms/labeled_text_field', form: form, name: :pronouns, autocomplete: :sex %>
+              <%= render 'forms/labeled_text_field', form: form, name: :location, autocomplete: 'address-level2' %>
+              <%= render 'forms/labeled_text_area',  form: form, name: :bio %>
+            </fieldset>
+
+            <%= render 'forms/submit_button', form: form %>
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

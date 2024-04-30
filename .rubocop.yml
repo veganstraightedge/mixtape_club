@@ -32,6 +32,7 @@ Layout/SpaceBeforeBrackets:
 Metrics/BlockLength:
   Exclude:
     - 'config/routes.rb'
+    - config/environments/*.rb
 
 Metrics/MethodLength:
   Exclude:

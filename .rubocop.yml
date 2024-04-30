@@ -9,9 +9,9 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 'db/schema.rb'
-    - 'vendor/**/*'
-    - 'bin/*'
+    - db/schema.rb
+    - vendor/**/*
+    - bin/*
 
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table
@@ -19,7 +19,7 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Exclude:
-    - 'db/**/*'
+    - db/**/*
 
 # This is too aggressive with our use of Seattle.rb style lack of parens on method calls
 # E.g., return redirect_to [:articles]
@@ -29,19 +29,19 @@ Layout/SpaceBeforeBrackets:
 
 Metrics/BlockLength:
   Exclude:
-    - 'config/routes.rb'
+    - config/routes.rb
     - config/environments/*.rb
 
 Metrics/MethodLength:
   Exclude:
-    - 'db/migrate/*'
+    - db/migrate/*
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
 Rails/TimeZone:
   Exclude:
-    - 'script/*'
+    - script/*
 
 RSpec/MessageSpies:
   Enabled: false
@@ -60,7 +60,7 @@ Style/MethodDefParentheses:
 
 Style/MixinUsage:
   Exclude:
-    - 'script/*'
+    - script/*
 
 Style/RedundantFetchBlock:
   Enabled: false

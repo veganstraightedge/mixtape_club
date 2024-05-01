@@ -9,9 +9,7 @@ class Mixtape < ApplicationRecord
 
   before_validation :sluggify
 
-  class << self
-    def visibilities = VISIBILITIES
-  end
+  def self.visibilities = VISIBILITIES
 
   def sluggify
     self.slug = title.to_slug

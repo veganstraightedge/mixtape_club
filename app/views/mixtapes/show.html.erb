@@ -1,0 +1,27 @@
+<div class='container'>
+  <div id="<%= dom_id @mixtape %>">
+    <%= visibility_badge @mixtape %>
+
+    <%= link_to @mixtape do %>
+      <h1 class='fw-bold'><%= @mixtape.title %></h1>
+      <% if @mixtape.subtitle.present? %><h2><%= @mixtape.subtitle %></h2><% end %>
+    <% end %>
+
+    <p>
+      <i>by</i>
+      <%= link_to @mixtape.user.handle, @mixtape.user.path %>
+
+      <% if @mixtape.published_at.present? %>
+        <i>on</i>
+        <%= @mixtape.published_at %>
+      <% end %>
+    </p>
+
+    <%= render_markdown @mixtape.description %>
+  </div>
+
+  <div>
+    <%= link_to "Edit", [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+  </div>
+
+</div>

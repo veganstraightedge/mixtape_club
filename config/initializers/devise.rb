@@ -24,8 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  # TODO: change this after setting up email sender
-  config.mailer_sender = 'TODO@example.com'
+  config.mailer_sender = 'us@mixtape.club'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

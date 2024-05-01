@@ -19,11 +19,11 @@
             <fieldset class='border p-3 mb-5 bg-light'>
               <legend class='form-text'>Authentication</legend>
 
-              <%= render "forms/labeled_password_field",
+              <%= render 'forms/labeled_password_field',
                           form:         form,
                           name:         :current_password,
-                          autocomplete: "current-password",
-                          note:         "We need your current password to confirm your changes." %>
+                          autocomplete: 'current-password',
+                          note:         'We need your current password to confirm your changes.' %>
 
               <%= render 'forms/labeled_email_field', form: form, name: :email %>
 

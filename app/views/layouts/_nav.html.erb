@@ -1,6 +1,6 @@
-<header class="p-3 mb-3 border-bottom">
+<header class='p-3 mb-3 border-bottom'>
   <div class='container-fluid'>
-    <div class="d-flex flex-wrap align-items-center justify-content-start">
+    <div class='d-flex flex-wrap align-items-center justify-content-start'>
       <%= link_to :root, class: 'navbar-brand fw-bold d-flex align-items-center me-1 me-md-3 mb-2 mb-md-0' do %>
         <%= bootstrap_icon 'cassette', height: 32, class: 'me-1' %>
         Mixtape Club
@@ -9,11 +9,11 @@
       <% if false %>
       <ul class='nav mb-2 justify-content-center mb-md-0'>
         <% if Current.user.present? %>
-          <li><%= link_to 'New', ":new_post", class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %></li>
+          <li><%= link_to 'New', ':new_post', class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %></li>
 
           <li>
             <%# if Current.user.posts.unscoped.draft.present? %>
-              <%= link_to 'Drafts', ":drafts", class: 'btn btn-outline-secondary btn-sm mt-1' %>
+              <%= link_to 'Drafts', ':drafts', class: 'btn btn-outline-secondary btn-sm mt-1' %>
             <%# end %>
           </li>
         <% end %>

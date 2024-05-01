@@ -1,5 +1,5 @@
 <div class='container'>
-  <div id="<%= dom_id @mixtape %>">
+  <div id='<%= dom_id @mixtape %>'>
     <%= visibility_badge @mixtape %>
 
     <%= link_to @mixtape do %>
@@ -22,7 +22,7 @@
 
   <% if @mixtape.user == Current.user %>
     <div>
-      <%= link_to "Edit", [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+      <%= link_to 'Edit', [:edit, @mixtape], class: 'btn btn-outline-primary' %>
     </div>
   <% end %>
 

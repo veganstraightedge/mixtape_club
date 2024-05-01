@@ -28,6 +28,9 @@ Layout/LineLength:
 Layout/SpaceBeforeBrackets:
   Enabled: false
 
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
 Metrics/AbcSize:
   Enabled: false
 
@@ -59,6 +62,10 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: consistent
+
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
 
@@ -66,12 +73,11 @@ Style/MixinUsage:
   Exclude:
     - script/*
 
-Style/RedundantFetchBlock:
-  Enabled: false
-
 Style/OpenStructUse:
   Enabled: false
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19_no_mixed_keys
-  EnforcedShorthandSyntax: consistent
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Style/StabbyLambdaParentheses:
+  EnforcedStyle: require_no_parentheses

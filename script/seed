@@ -20,6 +20,9 @@ chdir APP_ROOT do
   puts '==> Creating DB…'
   system! 'bundle exec rails db:create'
 
+  puts '==> Migrating DB…'
+  system! 'bundle exec rails db:migrate'
+
   puts '==> Seeds local development DB…'
   system! 'bundle exec rake db:seed'
   puts

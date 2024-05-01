@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :rememberable, :timeoutable, :validatable
 
   has_one_attached :avatar
+  has_many :mixtapes, dependent: :destroy, inverse_of: :user
 
   validates :password,
             presence:  true,

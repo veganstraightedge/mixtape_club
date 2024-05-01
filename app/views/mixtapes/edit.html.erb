@@ -1,17 +1,15 @@
 <div class='container my-5'>
-  <header class='mb-5'>
-    <h1 class='mb-0'>
-      Editing mixtape…
-    </h1>
-    <small class='m-0 text-secondary'>
-      <%= link_to @mixtape.title, @mixtape %>
-    </small>
-  </header>
+  <div class='col-12 col-md-10 col-lg-8 col-xl-6'>
 
-  <%= render "form", mixtape: @mixtape %>
+    <h1 class='mb-0'>Editing mixtape</h1>
+    <p class='mb-4 text-secondary'><%= link_to @mixtape.title, @mixtape %></p>
 
-  <div class='mt-5 pt-5' id="danger-zone">
-    <h1 class='text-danger fw-lighter'>Danger Zone™</h1>
-    <%= button_to "Destroy this mixtape", @mixtape, method: :delete, class: 'btn btn-outline-danger' %>
+    <%= render "form", mixtape: @mixtape %>
+
+    <div class='mt-5 pt-5' id="danger-zone">
+      <h1 class='text-danger fw-lighter'>Danger Zone™</h1>
+      <%= button_to "Destroy this mixtape", @mixtape, method: :delete, class: 'btn btn-outline-danger' %>
+    </div>
+
   </div>
 </div>

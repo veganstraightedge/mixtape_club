@@ -6,7 +6,7 @@
 
 <div class='form-floating mb-3'>
   <%= form.text_field name,
-                      autocomplete: (autocomplete || 'new-password'),
+                      autocomplete: autocomplete,
                       autofocus:    autofocus,
                       placeholder:  (placeholder || name),
                       class:        'form-control form-control-lg' %>

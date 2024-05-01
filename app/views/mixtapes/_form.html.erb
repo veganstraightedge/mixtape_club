@@ -1,20 +1,18 @@
 <%= form_with model: mixtape do |form| %>
   <%= render 'forms/errors', resource: mixtape %>
 
-  <div class='mb-3'>
-    <%= form.label :title, class: "form-label" %>
-    <%= form.text_field :title, class: "form-control form-control-lg" %>
-  </div>
+  <%= render 'forms/labeled_text_field',
+              form:      form,
+              name:      :title,
+              note:      'Required',
+              autofocus: action_name == 'new' %>
 
-  <div class='mb-3'>
-    <%= form.label :subtitle, class: "form-label" %>
-    <%= form.text_field :subtitle, class: "form-control form-control-lg" %>
-  </div>
+  <%= render 'forms/labeled_text_field', form: form, name: :subtitle %>
 
-  <div class='mb-3'>
-    <%= form.label :description, class: "form-label" %>
-    <%= form.text_area :description, class: "form-control form-control-lg", rows: 4 %>
-  </div>
+  <%= render 'forms/labeled_text_area',
+             form: form,
+             name: :description,
+             note: 'Rendered as Markdown' %>
 
   <div class="mb-3 d-flex align-items-center">
     <%= form.submit class: 'btn btn-primary me-2' %>

@@ -1,27 +1,27 @@
 <%= tag.div class: wrapper_row_classes do %>
   <%= tag.div class: wrapper_columns_classes do %>
 
-    <h2 class="display-4">Sign up</h2>
+    <h2 class='display-4'>Sign up</h2>
 
     <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |form| %>
       <%= render 'forms/errors', resource: resource %>
 
-      <%= render "forms/labeled_email_field", form: form, name: :email, placeholder: "user@example.com" %>
+      <%= render 'forms/labeled_email_field', form: form, name: :email, placeholder: 'user@example.com' %>
 
-      <div class="form-floating mb-3">
-        <%= form.text_field :username, autofocus: false, placeholder: "username", autocomplete: "username", class: "form-control form-control-lg" %>
+      <div class='form-floating mb-3'>
+        <%= form.text_field :username, autofocus: false, placeholder: 'username', autocomplete: 'username', class: 'form-control form-control-lg' %>
         <%= form.label :username %>
       </div>
 
       <div class='row'>
-        <div class='col'>
-          <%= render "forms/labeled_password_field",
+        <div class='col-12 col-md-6'>
+          <%= render 'forms/labeled_password_field',
                       form: form,
                       name: :password %>
         </div>
 
-        <div class='col'>
-          <%= render "forms/labeled_password_field",
+        <div class='col-12 col-md-6'>
+          <%= render 'forms/labeled_password_field',
                      form: form,
                      name: :password_confirmation,
                      label: 'Confirm your password' %>

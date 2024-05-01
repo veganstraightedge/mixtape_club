@@ -9,13 +9,13 @@
     <%= form.hidden_field :reset_password_token %>
 
       <div class='row'>
-        <div class='col'>
+        <div class='col-12 col-md-6'>
           <%= render 'forms/labeled_password_field',
                       form: form,
                       name: :password %>
         </div>
 
-        <div class='col'>
+        <div class='col-12 col-md-6'>
           <%= render 'forms/labeled_password_field',
                      form: form,
                      name: :password_confirmation,

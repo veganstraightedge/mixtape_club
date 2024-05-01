@@ -97,4 +97,15 @@ Rails.application.configure do
 
   # for devise, et al
   config.action_mailer.default_url_options = { host: 'mixtape.club' }
+
+  # for sending emails (for devise, et al) via mailgun on heroku
+  config.action_mailer.smtp_settings = {
+    port:           ENV.fetch('MAILGUN_SMTP_PORT',     'TODO'),
+    address:        ENV.fetch('MAILGUN_SMTP_SERVER',   'TODO'),
+    user_name:      ENV.fetch('MAILGUN_SMTP_LOGIN',    'TODO'),
+    password:       ENV.fetch('MAILGUN_SMTP_PASSWORD', 'TODO'),
+    domain:         'mixtape.club',
+    authentication: :plain
+  }
+  config.action_mailer.delivery_method = :smtp
 end

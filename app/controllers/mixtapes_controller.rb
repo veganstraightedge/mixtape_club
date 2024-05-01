@@ -15,38 +15,27 @@ class MixtapesController < ApplicationController
   def edit; end
 
   def create
-    @mixtape = Mixtape.new(mixtape_params)
+    @mixtape = Mixtape.new mixtape_params
 
-    respond_to do |format|
-      if @mixtape.save
-        format.html { redirect_to mixtape_url(@mixtape), notice: 'Mixtape was successfully created.' }
-        format.json { render :show, status: :created, location: @mixtape }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @mixtape.errors, status: :unprocessable_entity }
-      end
+    if @mixtape.save
+      redirect_to @mixtape, notice: 'Mixtape was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @mixtape.update(mixtape_params)
-        format.html { redirect_to mixtape_url(@mixtape), notice: 'Mixtape was successfully updated.' }
-        format.json { render :show, status: :ok, location: @mixtape }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @mixtape.errors, status: :unprocessable_entity }
-      end
+    if @mixtape.update mixtape_params
+      redirect_to @mixtape, notice: 'Mixtape was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @mixtape.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to mixtapes_url, notice: 'Mixtape was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to :mixtapes, notice: 'Mixtape was successfully destroyed.'
   end
 
   private
@@ -58,12 +47,13 @@ class MixtapesController < ApplicationController
   def mixtape_params
     params
       .require(:mixtape)
-      .permit :user_id,
-              :title,
-              :subtitle,
+      .permit :description,
+              :image,
+              :published_at,
               :slug,
-              :description,
-              :visibility,
-              :published_at
+              :subtitle,
+              :title,
+              :user_id,
+              :visibility
   end
 end

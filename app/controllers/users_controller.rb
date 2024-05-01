@@ -27,20 +27,15 @@ class UsersController < ApplicationController
     params
       .require(:user)
       .permit(
-        :adult_content,
         :avatar,
         :bio,
-        :birthday,
         :email,
         :location,
         :name,
         :password,
         :password_confirmation,
         :pronouns,
-        :show_age,
-        :website,
-        :username,
-        identity_documents: []
+        :username
       )
   end
 end

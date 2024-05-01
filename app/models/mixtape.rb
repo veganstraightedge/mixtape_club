@@ -35,4 +35,10 @@ class Mixtape < ApplicationRecord
   def secret?    = visibility == 'secret'
   def published? = visibility == 'published'
   def archived?  = visibility == 'archived'
+
+  # TEMP: enum methods until enum above is working
+  def draft!     = update! visibility: 'draft'
+  def secret!    = update! visibility: 'secret'
+  def published! = update! visibility: 'published'
+  def archived!  = update! visibility: 'archived'
 end

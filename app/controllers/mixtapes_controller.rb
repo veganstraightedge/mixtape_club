@@ -3,7 +3,7 @@ class MixtapesController < ApplicationController
   before_action :set_mixtape, only: %i[show edit update destroy]
 
   def index
-    @mixtapes = Mixtape.all
+    @mixtapes = Mixtape.published
   end
 
   def show; end

@@ -1,42 +1,23 @@
-<%= form_with(model: mixtape) do |form| %>
-  <% if mixtape.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(mixtape.errors.count, "error") %> prohibited this mixtape from being saved:</h2>
+<%= form_with model: mixtape do |form| %>
+  <%= render 'forms/errors', resource: mixtape %>
 
-      <ul>
-        <% mixtape.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class='mb-3'>
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control form-control-lg" %>
   </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class='mb-3'>
+    <%= form.label :subtitle, class: "form-label" %>
+    <%= form.text_field :subtitle, class: "form-control form-control-lg" %>
   </div>
 
-  <div>
-    <%= form.label :subtitle, style: "display: block" %>
-    <%= form.text_field :subtitle %>
+  <div class='mb-3'>
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control form-control-lg", rows: 4 %>
   </div>
 
-  <div>
-    <%= form.label :slug, style: "display: block" %>
-    <%= form.text_field :slug %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="mb-3 d-flex align-items-center">
+    <%= form.submit class: 'btn btn-primary me-2' %>
+    <%= link_to "Cancel", @mixtape %>
   </div>
 <% end %>

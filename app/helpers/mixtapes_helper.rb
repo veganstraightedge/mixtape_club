@@ -1,11 +1,13 @@
 module MixtapesHelper
   def visibility_badge mixtape
+    return unless mixtape.user == Current.user
+
     badge_classes = 'badge text-light '
 
     badge_classes << case mixtape.visibility.to_sym
                      when :draft     then 'text-bg-warning'
                      when :secret    then 'text-bg-info'
-                     when :published then 'text-bg-primary'
+                     when :published then 'text-bg-dark'
                      when :archived  then 'text-bg-danger'
                      else                 'text-bg-secondary'
                      end

@@ -40,3 +40,9 @@
     </div>
   </div>
 </header>
+
+<% if Current.user.present? %>
+  <div class='container'>
+    <%= link_to 'Mixtapes', :mixtapes, class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>

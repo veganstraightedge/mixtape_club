@@ -1,21 +1,26 @@
 class MixtapesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_mixtape, only: %i[show edit update destroy]
+  before_action      :set_mixtape,        only: %i[edit update destroy]
 
   def index
     @mixtapes = Mixtape.published
   end
 
-  def show; end
+  def show
+    # TODO: expand this to show secret mixtapes with secret URL
+    #       or archived/draft if owned by current user.
+    #       published for anyone.
+    @mixtape = Mixtape.find(params[:id])
+  end
 
   def new
-    @mixtape = Mixtape.new
+    @mixtape = Current.user.mixtapes.new
   end
 
   def edit; end
 
   def create
-    @mixtape = Mixtape.new mixtape_params
+    @mixtape = Current.user.mixtapes.new mixtape_params
 
     if @mixtape.save
       redirect_to @mixtape, notice: 'Mixtape was successfully created.'
@@ -41,7 +46,7 @@ class MixtapesController < ApplicationController
   private
 
   def set_mixtape
-    @mixtape = Mixtape.find(params[:id])
+    @mixtape = Current.user.mixtapes.find(params[:id])
   end
 
   def mixtape_params

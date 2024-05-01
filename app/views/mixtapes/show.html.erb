@@ -20,8 +20,10 @@
     <%= render_markdown @mixtape.description %>
   </div>
 
-  <div>
-    <%= link_to "Edit", [:edit, @mixtape], class: 'btn btn-outline-primary' %>
-  </div>
+  <% if @mixtape.user == Current.user %>
+    <div>
+      <%= link_to "Edit", [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+    </div>
+  <% end %>
 
 </div>

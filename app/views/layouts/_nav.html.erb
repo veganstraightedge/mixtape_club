@@ -14,13 +14,13 @@
 
       <div class='ms-auto'>
         <% if Current.user.present? %>
-          <%= link_to 'New', [:new, :mixtape], class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %>
+          <%= link_to '✚', [:new, :mixtape], class: 'btn btn-outline-primary btn-sm text-uppercase' %>
 
-          <%= link_to :settings, class: 'text-decoration-none ms-2' do %>
+          <%= link_to :settings, class: 'text-decoration-none ms-1' do %>
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>
           <% end %>
 
-          <%= link_to Current.user.path, class: 'text-decoration-none ms-2' do %>
+          <%= link_to Current.user.path, class: 'text-decoration-none ms-1' do %>
             <%= avatar_image_tag user: Current.user, width: 28, shadow: false %>
           <% end %>
 

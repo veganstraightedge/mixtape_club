@@ -8,11 +8,12 @@
     </div>
 
     <div class='col-8 col-lg-9'>
-      <h1 class='fw-bold'><%= @user.handle %></h1>
 
       <% if @user.name.present? %>
-        <h2 class='fw-light'><%= @user.name %></h2>
+        <h2 class='fw-light mb-0'><%= @user.name %></h2>
       <% end %>
+
+      <h1 class='fw-bold h2'><%= @user.handle %></h1>
 
       <% if @user.pronouns.present? %>
         <p class='m-0 text-secondary'><%= @user.pronouns %></p>

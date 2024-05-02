@@ -33,7 +33,7 @@ module UsersHelper
             placeholder_image_url width:, height:
           end
 
-    image_tag url, class: classes.join ' '
+    image_tag url, class: classes.join(' ')
   end
 
   def random_tilted_class

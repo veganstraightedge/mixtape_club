@@ -1,6 +1,7 @@
 class Mixtape < ApplicationRecord
   VISIBILITIES = { draft: :draft, secret: :secret, published: :published, archived: :archived }.freeze
 
+  has_one_attached :cover
   belongs_to :user, inverse_of: :mixtapes
 
   normalizes :title,       with: -> title       { title.squish }
@@ -10,10 +11,7 @@ class Mixtape < ApplicationRecord
   before_validation :sluggify
 
   def self.visibilities = VISIBILITIES
-
-  def sluggify
-    self.slug = title.to_slug
-  end
+  def sluggify = self.slug = title.to_slug
 
   # # # # # # TODO: Fix the enum below and delete temp workaround scopes/methods
   #

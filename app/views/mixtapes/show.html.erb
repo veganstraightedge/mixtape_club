@@ -1,29 +1,38 @@
 <div class='container'>
   <div id='<%= dom_id @mixtape %>'>
-    <%= visibility_badge @mixtape %>
 
-    <%= link_to @mixtape do %>
-      <h1 class='fw-bold'><%= @mixtape.title %></h1>
-      <% if @mixtape.subtitle.present? %><h2><%= @mixtape.subtitle %></h2><% end %>
+    <header class='mb-3'>
+      <h1 class='display-1 fw-bolder m-0'><%= @mixtape.title %></h1>
+
+      <% if @mixtape.subtitle.present? %>
+        <h2 class='display-6 fw-light m-0'><%= @mixtape.subtitle %></h2>
+      <% end %>
+
+      <p class='my-2'>
+        <%= visibility_badge @mixtape %>
+        <i>by</i>
+        <%= link_to @mixtape.user.handle, @mixtape.user.path %>
+
+        <% if @mixtape.published_at.present? %>
+          <i>on</i>
+          <%= @mixtape.published_at %>
+        <% end %>
+      </p>
+    </header>
+
+    <% if @mixtape.user == Current.user %>
+      <div class='mb-3'>
+        <%= link_to 'Edit', [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+      </div>
     <% end %>
 
-    <p>
-      <i>by</i>
-      <%= link_to @mixtape.user.handle, @mixtape.user.path %>
+    <div class='col-12 col-lg-8 col-xl-6'>
+      <div class='mb-3'>
+        <%= cover_image_tag mixtape: @mixtape, width: 600, height: 400 %>
+      </div>
 
-      <% if @mixtape.published_at.present? %>
-        <i>on</i>
-        <%= @mixtape.published_at %>
-      <% end %>
-    </p>
-
-    <%= render_markdown @mixtape.description %>
-  </div>
-
-  <% if @mixtape.user == Current.user %>
-    <div>
-      <%= link_to 'Edit', [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+      <%= render_markdown @mixtape.description %>
     </div>
-  <% end %>
+  </div>
 
 </div>

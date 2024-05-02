@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   PASSWORD_MINIMUM_LENGTH = 30
+  BIO_MAXIMUM_LENGTH      = 300
 
   devise :confirmable, :database_authenticatable,
          :lockable, :recoverable, :registerable,
@@ -20,9 +21,12 @@ class User < ApplicationRecord
               message: 'The passphrase ‘%<value>{value}’ is prohibited.'
             }
 
-  validates :bio,      length: { maximum: 300 }
+  validates :bio,      length: { maximum: BIO_MAXIMUM_LENGTH }
   validates :email,    uniqueness: true, 'valid_email_2/email': true
   validates :username, uniqueness: true, presence: true, length: { in: 2..40 }
+
+  normalizes :bio,      with: -> bio      { bio.strip.truncate BIO_MAXIMUM_LENGTH, separator: ' ', omission: '' }
+  normalizes :username, with: -> username { username.parameterize.remove(/-|_/) }
 
   def handle
     "@#{username}"

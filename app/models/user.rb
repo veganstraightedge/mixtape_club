@@ -14,10 +14,7 @@ class User < ApplicationRecord
             on:        :create,
             length:    { minimum: PASSWORD_MINIMUM_LENGTH },
             exclusion: {
-              in:      [
-                'mickey fickey fire cracker soap on a rope',
-                'a long passphrase to meet the minimum length'
-              ],
+              in:      ['mickey fickey fire cracker soap on a rope', 'a long passphrase to meet the minimum length'],
               message: 'The passphrase ‘%<value>{value}’ is prohibited.'
             }
 

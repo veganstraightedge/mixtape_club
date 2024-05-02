@@ -42,8 +42,9 @@ Rails.application.routes.draw do
   get 'settings',         to: redirect('settings/profile'), as: :settings
   get 'settings/profile', to: 'settings#profile',           as: :profile_settings
 
-  # Avatar delete button
+  # Avatar/Cover delete buttons
   resource :avatar, only: :destroy
+  resource :cover,  only: :destroy
 
   # Mixtapes
   get 'mixtapes',      to: redirect('explore'), as: :mixtapes

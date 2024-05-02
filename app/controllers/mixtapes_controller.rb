@@ -57,8 +57,8 @@ class MixtapesController < ApplicationController
   def mixtape_params
     params
       .require(:mixtape)
-      .permit :description,
-              :image,
+      .permit :cover,
+              :description,
               :published_at,
               :slug,
               :subtitle,

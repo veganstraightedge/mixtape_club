@@ -1,14 +1,24 @@
 class Mixtape < ApplicationRecord
-  VISIBILITIES = { draft: :draft, secret: :secret, published: :published, archived: :archived }.freeze
+  DESCRIPTION_MAXIMUM_LENGTH = 1000
+  VISIBILITIES               = {
+    draft:     :draft,
+    secret:    :secret,
+    published: :published,
+    archived:  :archived
+  }.freeze
 
   has_one_attached :cover
   belongs_to :user, inverse_of: :mixtapes
 
+  before_validation :sluggify
+
+  validates :title, presence: true
+  validates :slug,  presence: true, uniqueness: true # TODO: validate uniq scoped to user
+  validates :description, length: { maximum: DESCRIPTION_MAXIMUM_LENGTH }
+
   normalizes :title,       with: -> title       { title.squish }
   normalizes :subtitle,    with: -> subtitle    { subtitle.squish }
   normalizes :description, with: -> description { description.strip }
-
-  before_validation :sluggify
 
   def self.visibilities = VISIBILITIES
   def sluggify = self.slug = title.to_slug

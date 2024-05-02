@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   # /@profile
   def show
-    return redirect_to Current.user.path if request.path == '/profile'
+    if Current.user.present? && request.path == '/profile'
+      return redirect_to Current.user.path
+    end
 
     @user = User.find_by username: params[:username]
 

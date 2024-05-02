@@ -3,28 +3,28 @@
 
     <div class='col-4 col-lg-3'>
       <div>
-        <%= avatar_image_tag user: Current.user, width: 300, tilt: true %>
+        <%= avatar_image_tag user: @user, width: 300, tilt: true %>
       </div>
     </div>
 
     <div class='col-8 col-lg-9'>
-      <h1 class='fw-bold'><%= Current.user.handle %></h1>
+      <h1 class='fw-bold'><%= @user.handle %></h1>
 
-      <% if Current.user.name.present? %>
-        <h2 class='fw-light'><%= Current.user.name %></h2>
+      <% if @user.name.present? %>
+        <h2 class='fw-light'><%= @user.name %></h2>
       <% end %>
 
-      <% if Current.user.pronouns.present? %>
-        <p class='m-0 text-secondary'><%= Current.user.pronouns %></p>
+      <% if @user.pronouns.present? %>
+        <p class='m-0 text-secondary'><%= @user.pronouns %></p>
       <% end %>
 
-      <% if Current.user.location.present? %>
-        <p class='m-0'><%= Current.user.location %></p>
+      <% if @user.location.present? %>
+        <p class='m-0'><%= @user.location %></p>
       <% end %>
 
-      <% if Current.user.bio.present? %>
+      <% if @user.bio.present? %>
         <div class='my-3 d-none d-lg-block'>
-          <%= render_markdown Current.user.bio, inline_tags_only: true, user: Current.user %>
+          <%= render_markdown @user.bio, inline_tags_only: true, user: @user %>
         </div>
       <% end %>
     </div>

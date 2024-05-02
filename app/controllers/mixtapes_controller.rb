@@ -1,6 +1,6 @@
 class MixtapesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action      :set_user,           only: :show
+  before_action      :set_user
   before_action      :set_mixtape,        only: %i[edit update destroy]
 
   def index
@@ -23,7 +23,7 @@ class MixtapesController < ApplicationController
     @mixtape = Current.user.mixtapes.new mixtape_params
 
     if @mixtape.save
-      redirect_to @mixtape, notice: 'Mixtape was successfully created.'
+      redirect_to @mixtape.path, notice: 'Mixtape was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class MixtapesController < ApplicationController
 
   def update
     if @mixtape.update mixtape_params
-      redirect_to @mixtape, notice: 'Mixtape was successfully updated.'
+      redirect_to @mixtape.path, notice: 'Mixtape was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

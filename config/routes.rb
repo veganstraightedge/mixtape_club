@@ -46,10 +46,18 @@ Rails.application.routes.draw do
   resource :avatar, only: :destroy
 
   # Mixtapes
+  ## Custom routes and redirect
   get 'mixtapes',         to: redirect('explore'), as: :mixtapes
   get 'explore',          to: 'mixtapes#index',    as: :explore
   get 'mixtapes/new',     to: redirect('/'),       as: :new_mixtape
-  get '@:username/:slug', to: 'mixtapes#show',     as: :mixtape
+
+  ## CRUD
+  get    '@:username/:slug',     to: 'mixtapes#show', as: :mixtape
+  post   '@:username/:mixtapes', to: 'mixtapes#create'
+  patch  '@:username/:slug',     to: 'mixtapes#update'
+  put    '@:username/:slug',     to: 'mixtapes#update'
+  delete '@:username/:slug',     to: 'mixtapes#destroy'
+
 
   resources :mixtapes, param: :slug, except: %i[index show new] do
     resource :cover, only: :destroy

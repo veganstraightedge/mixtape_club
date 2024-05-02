@@ -1,17 +1,18 @@
-<%= tag.div class: wrapper_row_classes do %>
-  <%= tag.div class: wrapper_columns_classes do %>
+<div class='container'>
+  <div class='row'>
+    <h1 class='display-3'>Resend confirmation instructions</h1>
 
-  <h2 class='display-4'>Resend confirmation instructions</h2>
+    <div class='col-12 col-md-10 col-lg-8 col-xl-6'>
+      <%= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |form| %>
+        <%= render 'forms/errors', resource: resource %>
 
-  <%= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |form| %>
-    <%= render 'forms/errors', resource: resource %>
+        <%= render 'forms/labeled_email_field', form: form, name: :email, autofocus: true %>
 
-    <%= render 'forms/labeled_email_field', form: form, name: :email %>
+        <%= render 'forms/submit_button', form: form, label: 'Resend confirmation instructions' %>
+      <% end %>
 
-    <%= render 'forms/submit_button', form: form, label: 'Resend confirmation instructions' %>
-  <% end %>
+      <%= render 'devise/shared/links' %>
+    </div>
 
-  <%= render 'devise/shared/links' %>
-
-  <% end %>
-<% end %>
+  </div>
+</div>

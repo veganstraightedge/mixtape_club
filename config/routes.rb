@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :mixtapes
   # Authentication
   devise_for :user,
              path:       '/',
@@ -45,6 +44,11 @@ Rails.application.routes.draw do
 
   # Avatar delete button
   resource :avatar, only: :destroy
+
+  # Mixtapes
+  get 'explore',  to: 'mixtapes#index',    as: :explore
+  get 'mixtapes', to: redirect('explore'), as: :mixtapes
+  resources :mixtapes, except: :index
 
   # Administrivia
   get 'terms',   to: 'about#terms',   as: :terms

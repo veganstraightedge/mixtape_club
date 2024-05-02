@@ -6,10 +6,15 @@
         Mixtape Club
       <% end %>
 
+      <ul class='navbar-nav mb-2 justify-content-center mb-md-0'>
+        <li class="nav-item">
+          <%= link_to 'Explore', :explore, class: 'nav-link active',  aria: { current: :page } %>
+        </li>
+      </ul>
+
       <div class='ms-auto'>
         <% if Current.user.present? %>
-            <%= link_to 'New', [:new, :mixtape], class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %>
-          <%= link_to 'Mixtapes', :mixtapes, class: 'btn btn-outline-primary btn-sm mt-1' %>
+          <%= link_to 'New', [:new, :mixtape], class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %>
 
           <%= link_to :settings, class: 'text-decoration-none ms-2' do %>
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>

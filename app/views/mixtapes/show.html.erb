@@ -36,4 +36,17 @@
     </div>
   </div>
 
+  <ol class='list-unstyled mt-5 pt-5'>
+    <% @mixtape.entries.order(:position).each do |entry| %>
+      <li class='mb-5'>
+        <% case entry.entryable_type %>
+        <% when 'Audio' %>
+        <%= render entry.audio %>
+        <% when 'Image' %>
+        <%= render entry.image %>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+
 </div>

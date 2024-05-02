@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :audios
+  resources :images
+  resources :entries
   # Authentication
   devise_for :user,
              path:       '/',
@@ -57,7 +60,6 @@ Rails.application.routes.draw do
   patch  '@:username/:slug',     to: 'mixtapes#update'
   put    '@:username/:slug',     to: 'mixtapes#update'
   delete '@:username/:slug',     to: 'mixtapes#destroy'
-
 
   resources :mixtapes, param: :slug, except: %i[index show new] do
     resource :cover, only: :destroy

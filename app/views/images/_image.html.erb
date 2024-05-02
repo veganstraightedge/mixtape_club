@@ -1,0 +1,11 @@
+<div class='mb-5 pb-5' id='<%= dom_id image %>'>
+  <div class='col-12 col-lg-8 col-xl-6'>
+    <figure>
+      <%= image_tag image.url, alt: image.entry.description, class: 'mb-3' %>
+
+      <figcaption>
+        <%= render 'entries/entry', entry: image.entry %>
+      </figcaption>
+    </figure>
+  </div>
+</div>

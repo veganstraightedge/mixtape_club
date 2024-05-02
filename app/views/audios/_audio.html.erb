@@ -1,0 +1,11 @@
+<div class='mb-5 pb-5' id='<%= dom_id audio %>'>
+  <div class='col-12 col-lg-8 col-xl-6'>
+    <audio src='<%= audio.url %>' controls class='w-100 mb-3'></audio>
+
+    <% if audio.description.present? %>
+      <%= render_markdown audio.description %>
+    <% end %>
+
+    <%= render audio.entry %>
+  </div>
+</div>

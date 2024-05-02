@@ -1,7 +1,7 @@
 class MixtapesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action      :set_user
-  before_action      :set_mixtape,        only: %i[edit update destroy]
+  before_action      :set_mixtape, only: %i[edit update destroy]
 
   def index
     @mixtapes = Mixtape.published
@@ -14,8 +14,7 @@ class MixtapesController < ApplicationController
     @mixtape = @user.mixtapes.find_by(slug: params[:slug])
   end
 
-  def new
-  end
+  def new; end
 
   def edit; end
 

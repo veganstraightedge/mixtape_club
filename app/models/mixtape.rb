@@ -9,6 +9,7 @@ class Mixtape < ApplicationRecord
 
   has_one_attached :cover
   belongs_to :user, inverse_of: :mixtapes
+  has_many :entries, dependent: :destroy, inverse_of: :mixtape
 
   before_validation :sluggify
 

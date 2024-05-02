@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :mixtapes, dependent: :destroy, inverse_of: :user
+  has_many :entries,  dependent: :destroy, inverse_of: :user
 
   validates :password,
             presence:  true,

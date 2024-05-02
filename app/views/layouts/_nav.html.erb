@@ -6,11 +6,13 @@
         Mixtape Club
       <% end %>
 
+      <% if false %>
       <ul class='navbar-nav mb-2 justify-content-center mb-md-0'>
-        <li class="nav-item">
+        <li class='nav-item'>
           <%= link_to 'Explore', :explore, class: 'nav-link active',  aria: { current: :page } %>
         </li>
       </ul>
+      <% end %>
 
       <div class='ms-auto'>
         <% if Current.user.present? %>

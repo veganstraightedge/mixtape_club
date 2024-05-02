@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # Homepage for not signed-in users
   authenticated :user do
-    root 'mixtapes#new', as: :dashboard
+    root 'dashboard#index', as: :dashboard
   end
 
   # Profile
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   get 'explore',       to: 'mixtapes#index',    as: :explore
   get 'mixtapes/new',  to: redirect('/'),       as: :new_mixtape
   resources :mixtapes, except: %i[index new] do
-    resource :cover,  only: :destroy
+    resource :cover, only: :destroy
   end
 
   # Administrivia

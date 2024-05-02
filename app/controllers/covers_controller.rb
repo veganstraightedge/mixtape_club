@@ -4,7 +4,7 @@ class CoversController < ApplicationController
   def destroy
     @mixtape.cover.purge
 
-    redirect_to @mixtape, status: 303
+    redirect_to @mixtape, status: :see_other
   end
 
   private

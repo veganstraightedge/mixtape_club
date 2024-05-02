@@ -16,8 +16,8 @@
         <div class='col-12 col-md-9 mb-5'>
           <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |form| %>
 
-            <fieldset class='border p-3 mb-5 bg-light'>
-              <legend class='form-text'>Authentication</legend>
+            <fieldset class='mb-5'>
+              <legend class='fw-light'>Authentication</legend>
 
               <%= render 'forms/labeled_password_field',
                           form:         form,
@@ -35,8 +35,8 @@
               <% end %>
             </fieldset>
 
-            <fieldset class='border p-3 mb-5 bg-light'>
-              <legend>Change your password</legend>
+            <fieldset class='mb-5x'>
+              <legend class='fw-light'>Change your password</legend>
               <p class='form-text'>Leave blank if you don't want to change it.</p>
 
               <div class='row'>
@@ -58,16 +58,14 @@
               <%= render 'forms/password_note' %>
             </fieldset>
 
-            <div class='mb-3 text-end'>
-              <%= form.submit 'Save', class: 'btn btn-primary btn-lg' %>
-            </div>
+            <%= render 'forms/submit_button', form: form %>
           <% end %>
 
           <% if false %>
           <div class='card text-white bg-danger mb-5' style='margin-top: 10rem'>
             <div class='card-header h3'>The Danger Zone™</div>
 
-            <div class='card-body bg-light text-dark'>
+            <div class='card-body'>
               <h2 class='card-title text-danger h5'>
                 Want to cancel your account?
               </h2>

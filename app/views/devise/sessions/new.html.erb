@@ -21,9 +21,7 @@
       <%= form.label     :remember_me, 'Stay signed in?', class: 'form-check-label' %>
     </div>
 
-    <div class='form-actions'>
-      <%= form.submit 'Sign in' %>
-    </div>
+    <%= render 'forms/submit_button', form: form, label: 'Sign in' %>
   <% end %>
 
   <%= render 'devise/shared/links' %>

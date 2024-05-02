@@ -14,8 +14,5 @@
              name: :description,
              note: 'Rendered as Markdown' %>
 
-  <div class='mb-3 d-flex align-items-center'>
-    <%= form.submit class: 'btn btn-primary me-2' %>
-    <%= link_to 'Cancel', @mixtape %>
-  </div>
+  <%= render 'forms/submit_button', form: form %>
 <% end %>

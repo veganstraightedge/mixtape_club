@@ -8,9 +8,7 @@
 
     <%= render 'forms/labeled_email_field', form: form, name: :email %>
 
-    <div class='form-actions'>
-      <%= form.submit 'Resend confirmation instructions' %>
-    </div>
+    <%= render 'forms/submit_button', form: form, label: 'Resend confirmation instructions' %>
   <% end %>
 
   <%= render 'devise/shared/links' %>

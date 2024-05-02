@@ -14,14 +14,13 @@
         </div>
 
         <div class='col-12 col-md-9 mb-5'>
-
           <%= form_with model: Current.user do |form| %>
             <%= hidden_field_tag :form_name, :profile %>
 
-            <fieldset class='border p-3 mb-5 bg-light'>
-              <legend class='form-text'>Profile</legend>
+            <fieldset class='mb-3'>
+              <legend class='fw-light'>Avatar</legend>
 
-              <%= form.label :avatar, class: 'form-label' %>
+              <%= form.label :avatar, class: 'form-label visually-hidden' %>
               <div class='row mb-3'>
                 <% if Current.user.avatar.attached? %>
                   <div class='col-2'>
@@ -43,6 +42,10 @@
                   <% end %>
                 </div>
               </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class='fw-light'>Profile</legend>
 
               <%= render 'forms/labeled_text_field', form: form, name: :name,     autocomplete: :name %>
               <%= render 'forms/labeled_text_field', form: form, name: :pronouns, autocomplete: :sex %>

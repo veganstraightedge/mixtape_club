@@ -30,9 +30,7 @@
 
       <%= render 'forms/password_note' %>
 
-      <div class='form-actions'>
-        <%= form.submit 'Sign up' %>
-      </div>
+      <%= render 'forms/submit_button', form: form, label: 'Sign up' %>
     <% end %>
 
     <%= render 'devise/shared/links' %>

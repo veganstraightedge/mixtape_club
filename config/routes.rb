@@ -46,10 +46,12 @@ Rails.application.routes.draw do
   resource :avatar, only: :destroy
 
   # Mixtapes
-  get 'mixtapes',      to: redirect('explore'), as: :mixtapes
-  get 'explore',       to: 'mixtapes#index',    as: :explore
-  get 'mixtapes/new',  to: redirect('/'),       as: :new_mixtape
-  resources :mixtapes, param: :slug, except: %i[index new] do
+  get 'mixtapes',         to: redirect('explore'), as: :mixtapes
+  get 'explore',          to: 'mixtapes#index',    as: :explore
+  get 'mixtapes/new',     to: redirect('/'),       as: :new_mixtape
+  get '@:username/:slug', to: 'mixtapes#show',     as: :mixtape
+
+  resources :mixtapes, param: :slug, except: %i[index show new] do
     resource :cover, only: :destroy
   end
 

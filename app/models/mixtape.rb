@@ -23,6 +23,7 @@ class Mixtape < ApplicationRecord
   def self.visibilities = VISIBILITIES
   def sluggify = self.slug = title.to_slug
   def to_param = slug
+  def path = "/@#{user.username}/#{slug}"
 
   # # # # # # TODO: Fix the enum below and delete temp workaround scopes/methods
   #

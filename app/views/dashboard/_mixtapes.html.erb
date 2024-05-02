@@ -4,7 +4,7 @@
   <ul class='list-unstyled'>
     <% mixtapes.each do |mixtape| %>
       <li>
-        <%= link_to mixtape.title, mixtape %>
+        <%= link_to mixtape.title, mixtape.path %>
       </li>
     <% end %>
   </ul>

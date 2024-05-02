@@ -1,5 +1,6 @@
 class MixtapesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action      :set_user,           only: :show
   before_action      :set_mixtape,        only: %i[edit update destroy]
 
   def index
@@ -10,7 +11,7 @@ class MixtapesController < ApplicationController
     # TODO: expand this to show secret mixtapes with secret URL
     #       or archived/draft if owned by current user.
     #       published for anyone.
-    @mixtape = Mixtape.find_by(slug: params[:slug])
+    @mixtape = @user.mixtapes.find_by(slug: params[:slug])
   end
 
   def new
@@ -43,6 +44,10 @@ class MixtapesController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find_by(username: params[:username])
+  end
 
   def set_mixtape
     @mixtape = Current.user.mixtapes.find_by(slug: params[:slug])

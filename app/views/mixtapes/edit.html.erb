@@ -12,6 +12,7 @@
       <%= button_to 'Destroy this mixtape',
                     @mixtape,
                     class: 'btn btn-outline-danger',
+                    method: :delete,
                     data:  {
                       turbo_method:  :delete,
                       turbo_confirm: 'Are you sure you’re sure? There is NO UNDO.'

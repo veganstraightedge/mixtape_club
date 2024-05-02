@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   get 'mixtapes',      to: redirect('explore'), as: :mixtapes
   get 'explore',       to: 'mixtapes#index',    as: :explore
   get 'mixtapes/new',  to: redirect('/'),       as: :new_mixtape
-  resources :mixtapes, except: %i[index new] do
+  resources :mixtapes, param: :slug, except: %i[index new] do
     resource :cover, only: :destroy
   end
 

@@ -25,11 +25,6 @@ class User < ApplicationRecord
   normalizes :bio,      with: -> bio      { bio.strip.truncate BIO_MAXIMUM_LENGTH, separator: ' ', omission: '' }
   normalizes :username, with: -> username { username.parameterize.remove(/-|_/) }
 
-  def handle
-    "@#{username}"
-  end
-
-  def path
-    "/@#{username}"
-  end
+  def handle = "@#{username}"
+  def path = "/@#{username}"
 end

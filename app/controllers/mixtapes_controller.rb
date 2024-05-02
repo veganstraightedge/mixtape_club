@@ -10,7 +10,7 @@ class MixtapesController < ApplicationController
     # TODO: expand this to show secret mixtapes with secret URL
     #       or archived/draft if owned by current user.
     #       published for anyone.
-    @mixtape = Mixtape.find(params[:id])
+    @mixtape = Mixtape.find_by(slug: params[:slug])
   end
 
   def new
@@ -45,7 +45,7 @@ class MixtapesController < ApplicationController
   private
 
   def set_mixtape
-    @mixtape = Current.user.mixtapes.find(params[:id])
+    @mixtape = Current.user.mixtapes.find_by(slug: params[:slug])
   end
 
   def mixtape_params

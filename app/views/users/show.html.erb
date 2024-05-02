@@ -28,6 +28,36 @@
         </div>
       <% end %>
     </div>
+  </div>
 
+  <div class='row mt-5'>
+    <div class='col-12 col-lg-9 offset-lg-3'>
+
+    <% if @user.mixtapes.published.present? %>
+      <h3 class='fw-light'>Published mixtapes</h3>
+
+      <% @user.mixtapes.published.each do |mixtape| %>
+        <div class='row mb-3'>
+
+          <div class='col-4 col-lg-2'>
+            <%= link_to cover_image_tag(mixtape:, width: 300), mixtape.path %>
+          </div>
+
+          <div class='col-8 col-lg-10'>
+            <%= link_to mixtape.path, class: 'text-decoration-none' do %>
+              <div class='m-0 fw-bold'><%= mixtape.title %></div>
+
+              <% if mixtape.subtitle.present? %>
+                <div><%= mixtape.subtitle %></div>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    <% else %>
+      <p>No published mixtapes yet</p>
+    <% end %>
+  </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
       <div class='mb-4'>
         <%= cover_image_tag mixtape: mixtape, width: 600 %>
         <%=  link_to 'Delete',
-                     :cover,
+                     [mixtape, :cover],
                      class: 'btn btn-outline-danger btn-sm mt-2',
                      data:  {
                        turbo_method:  :delete,

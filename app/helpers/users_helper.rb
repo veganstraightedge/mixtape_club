@@ -7,18 +7,6 @@ module UsersHelper
     "https://via.placeholder.com/#{width}x#{height}/#{color}?text=+"
   end
 
-  def cover_image_tag mixtape:, width: nil, height: width
-    height = width if height.blank?
-
-    url = if mixtape.cover.attached?
-            mixtape.cover.variant resize_to_limit: [width, height]
-          else
-            placeholder_image_url width:, height:
-          end
-
-    image_tag url
-  end
-
   def avatar_image_tag user:, width: nil, height: width, tilt: false, shadow: true
     height = width if height.blank?
 

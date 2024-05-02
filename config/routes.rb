@@ -42,15 +42,16 @@ Rails.application.routes.draw do
   get 'settings',         to: redirect('settings/profile'), as: :settings
   get 'settings/profile', to: 'settings#profile',           as: :profile_settings
 
-  # Avatar/Cover delete buttons
+  # Avatar delete button
   resource :avatar, only: :destroy
-  resource :cover,  only: :destroy
 
   # Mixtapes
   get 'mixtapes',      to: redirect('explore'), as: :mixtapes
   get 'explore',       to: 'mixtapes#index',    as: :explore
   get 'mixtapes/new',  to: redirect('/'),       as: :new_mixtape
-  resources :mixtapes, except: %i[index new]
+  resources :mixtapes, except: %i[index new] do
+    resource :cover,  only: :destroy
+  end
 
   # Administrivia
   get 'terms',   to: 'about#terms',   as: :terms

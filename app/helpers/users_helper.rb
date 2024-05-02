@@ -1,5 +1,5 @@
 module UsersHelper
-  def placeholder_profile_image_url size: 600
+  def placeholder_image_url size: 600
     hex_range = (0..9).to_a + ('a'..'f').to_a
     color = [hex_range.sample, hex_range.sample, hex_range.sample].join
     "https://via.placeholder.com/#{size}/#{color}?text=+"
@@ -14,7 +14,7 @@ module UsersHelper
     url = if user.avatar.attached?
             user.avatar.variant(resize_to_limit: [width, width])
           else
-            placeholder_profile_image_url size: width
+            placeholder_image_url size: width
           end
 
     image_tag url, class: classes.join(' ')

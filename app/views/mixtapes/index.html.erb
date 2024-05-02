@@ -6,7 +6,7 @@
 
       <div id='<%= dom_id mixtape %>'>
         <h2>
-          <%= link_to mixtape do %>
+          <%= link_to mixtape.path do %>
             <b><%= mixtape.title %></b>
             <% if mixtape.subtitle.present? %><br><%= mixtape.subtitle %><% end %>
           <% end %>

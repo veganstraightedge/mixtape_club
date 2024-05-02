@@ -19,11 +19,24 @@
     <%= form.file_field :cover, accept: '.jpg, .jpeg, .png, .gif', class: 'form-control form-control-lg' %>
   </div>
 
-
-
   <%= render 'forms/labeled_text_field', form: form, name: :title, placeholder: 'Title *required' %>
   <%= render 'forms/labeled_text_field', form: form, name: :subtitle %>
   <%= render 'forms/labeled_text_area',  form: form, name: :description, note: 'Rendered as Markdown' %>
+
+  <fieldset class='mb-3'>
+    <legend>Visibility</legend>
+    <% Mixtape.visibilities.keys.each do |visibility| %>
+      <%= form.radio_button :visibility,
+                            visibility,
+                            class: 'btn-check',
+                            autocomplete: 'off' %>
+
+      <%= form.label :visibility,
+                     visibility.to_s.humanize,
+                     value: visibility,
+                     class: "btn btn-outline-#{color_for_visibility visibility}" %>
+    <% end %>
+  </fieldset>
 
   <%= render 'forms/submit_button', form: form %>
 <% end %>

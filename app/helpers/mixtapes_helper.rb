@@ -1,16 +1,16 @@
 module MixtapesHelper
+  def color_for_visibility visibility
+    case visibility.to_sym
+    when :draft     then 'warning'
+    when :secret    then 'info'
+    when :published then 'primary'
+    when :archived  then 'danger'
+    else                 'secondary'
+    end
+  end
+
   def visibility_badge mixtape
-    return unless mixtape.user == Current.user
-
-    badge_classes = 'badge text-light '
-
-    badge_classes << case mixtape.visibility.to_sym
-                     when :draft     then 'text-bg-warning'
-                     when :secret    then 'text-bg-info'
-                     when :published then 'text-bg-dark'
-                     when :archived  then 'text-bg-danger'
-                     else                 'text-bg-secondary'
-                     end
+    badge_classes = "badge text-light text-bg-#{color_for_visibility mixtape.visibility}"
 
     content_tag :span, mixtape.visibility.upcase, class: badge_classes
   end

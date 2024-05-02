@@ -1,18 +1,9 @@
 <%= form_with model: mixtape do |form| %>
   <%= render 'forms/errors', resource: mixtape %>
 
-  <%= render 'forms/labeled_text_field',
-              form:      form,
-              name:      :title,
-              note:      'Required',
-              autofocus: action_name == 'new' %>
-
+  <%= render 'forms/labeled_text_field', form: form, name: :title, note: 'Required' %>
   <%= render 'forms/labeled_text_field', form: form, name: :subtitle %>
-
-  <%= render 'forms/labeled_text_area',
-             form: form,
-             name: :description,
-             note: 'Rendered as Markdown' %>
+  <%= render 'forms/labeled_text_area',  form: form, name: :description, note: 'Rendered as Markdown' %>
 
   <%= render 'forms/submit_button', form: form %>
 <% end %>

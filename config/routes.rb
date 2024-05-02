@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # Homepage for not signed-in users
   authenticated :user do
-    root 'dashboard#index', as: :authenticated_root
+    root 'mixtapes#new', as: :dashboard
   end
 
   # Profile
@@ -39,16 +39,17 @@ Rails.application.routes.draw do
 
   # Users
   resources :users, only: :update
-  get 'settings',               to: redirect('settings/profile'), as: :settings
-  get 'settings/profile',       to: 'settings#profile',           as: :profile_settings
+  get 'settings',         to: redirect('settings/profile'), as: :settings
+  get 'settings/profile', to: 'settings#profile',           as: :profile_settings
 
   # Avatar delete button
   resource :avatar, only: :destroy
 
   # Mixtapes
-  get 'explore',  to: 'mixtapes#index',    as: :explore
-  get 'mixtapes', to: redirect('explore'), as: :mixtapes
-  resources :mixtapes, except: :index
+  get 'mixtapes',      to: redirect('explore'), as: :mixtapes
+  get 'explore',       to: 'mixtapes#index',    as: :explore
+  get 'mixtapes/new',  to: redirect('/'),       as: :new_mixtape
+  resources :mixtapes, except: %i[index new]
 
   # Administrivia
   get 'terms',   to: 'about#terms',   as: :terms

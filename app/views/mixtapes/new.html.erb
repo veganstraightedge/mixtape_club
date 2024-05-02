@@ -1,7 +1,35 @@
 <div class='container my-5'>
-  <div class='col-12 col-md-10 col-lg-8 col-xl-6'>
-    <h1>New mixtape</h1>
+  <div class='row'>
 
-    <%= render 'form', mixtape: @mixtape %>
+    <div class='col-12 col-md-6'>
+      <h1>Dashboard</h1>
+
+      <div class='mb-5'>
+        <h2 class='h3 fw-light'>Draft mixtapes</h2>
+        <%= render 'mixtapes', mixtapes: @draft_mixtapes, label: 'Draft' %>
+      </div>
+
+      <div class='mb-5'>
+        <h2 class='h3 fw-light'>Secret mixtapes</h2>
+        <%= render 'mixtapes', mixtapes: @secret_mixtapes, label: 'Secret' %>
+      </div>
+
+      <div class='mb-5'>
+        <h2 class='h3 fw-light'>Published mixtapes</h2>
+        <%= render 'mixtapes', mixtapes: @published_mixtapes, label: 'Published' %>
+      </div>
+
+      <div class='mb-5'>
+        <h2 class='h3 fw-light'>Archived mixtapes</h2>
+        <%= render 'mixtapes', mixtapes: @archived_mixtapes, label: 'Archived' %>
+      </div>
+    </div>
+
+    <div class='col-12 col-md-6'>
+      <h1>New mixtape</h1>
+
+      <%= render 'form', mixtape: @mixtape %>
+    </div>
+
   </div>
 </div>

@@ -14,7 +14,9 @@
 
       <div class='ms-auto'>
         <% if Current.user.present? %>
-          <%= link_to '✚', [:new, :mixtape], class: 'btn btn-outline-primary btn-sm text-uppercase' %>
+          <%= link_to [:new, :mixtape], class: 'text-decoration-none ms-1' do %>
+            <%= bootstrap_icon 'plus-lg', width: 28, height: 28, fill: :gray %>
+          <% end %>
 
           <%= link_to :settings, class: 'text-decoration-none ms-1' do %>
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>

@@ -498,6 +498,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-capybara
+  rubocop-factory_bot
   rubocop-i18n
   rubocop-md
   rubocop-performance

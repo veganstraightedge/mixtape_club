@@ -1,11 +1,16 @@
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop
   - rubocop-capybara
   - rubocop-factory_bot
+  - rubocop-i18n
+  - rubocop-md
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
+  - rubocop-thread_safety
 
 AllCops:
   NewCops: enable

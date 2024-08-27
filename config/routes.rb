@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :audios
   resources :images
   resources :entries
+
   # Authentication
   devise_for :user,
              path:       '/',
@@ -24,14 +25,14 @@ Rails.application.routes.draw do
     get 'settings/account', to: 'devise/registrations#edit', as: :account_settings
   end
 
-  # Homepage for signed-in users
+  # Homepage for not signed-in users
   unauthenticated do
-    root 'home#index'
+    root to: 'home#index'
   end
 
-  # Homepage for not signed-in users
+  # Homepage for signed-in users
   authenticated :user do
-    root 'dashboard#index', as: :dashboard
+    root to: 'dashboard#show', as: :dashboard
   end
 
   # Profile

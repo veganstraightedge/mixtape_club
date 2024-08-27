@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :audios
+  resources :images
+  resources :entries
   # Authentication
   devise_for :user,
              path:       '/',
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
 
   # Homepage for not signed-in users
   authenticated :user do
-    root 'dashboard#index', as: :authenticated_root
+    root 'dashboard#index', as: :dashboard
   end
 
   # Profile
@@ -39,11 +42,28 @@ Rails.application.routes.draw do
 
   # Users
   resources :users, only: :update
-  get 'settings',               to: redirect('settings/profile'), as: :settings
-  get 'settings/profile',       to: 'settings#profile',           as: :profile_settings
+  get 'settings',         to: redirect('settings/profile'), as: :settings
+  get 'settings/profile', to: 'settings#profile',           as: :profile_settings
 
   # Avatar delete button
   resource :avatar, only: :destroy
+
+  # Mixtapes
+  ## Custom routes and redirect
+  get 'mixtapes',         to: redirect('explore'), as: :mixtapes
+  get 'explore',          to: 'mixtapes#index',    as: :explore
+  get 'mixtapes/new',     to: redirect('/'),       as: :new_mixtape
+
+  ## CRUD
+  get    '@:username/:slug',     to: 'mixtapes#show', as: :mixtape
+  post   '@:username/:mixtapes', to: 'mixtapes#create'
+  patch  '@:username/:slug',     to: 'mixtapes#update'
+  put    '@:username/:slug',     to: 'mixtapes#update'
+  delete '@:username/:slug',     to: 'mixtapes#destroy'
+
+  resources :mixtapes, param: :slug, except: %i[index show new] do
+    resource :cover, only: :destroy
+  end
 
   # Administrivia
   get 'terms',   to: 'about#terms',   as: :terms

@@ -1,32 +1,26 @@
-<header class="p-3 mb-3 border-bottom">
+<header class='p-3 mb-3 border-bottom'>
   <div class='container-fluid'>
-    <div class="d-flex flex-wrap align-items-center justify-content-start">
-      <%= link_to :root, class: 'navbar-brand fw-bold d-flex align-items-center me-1 me-md-3 mb-2 mb-md-0' do %>
+    <div class='d-flex flex-wrap align-items-center justify-content-start'>
+      <%= link_to :root, class: 'navbar-brand fw-bold d-flex align-items-center me-2 me-md-3 mb-2 mb-md-0' do %>
         <%= bootstrap_icon 'cassette', height: 32, class: 'me-1' %>
         Mixtape Club
       <% end %>
 
       <% if false %>
-      <ul class='nav mb-2 justify-content-center mb-md-0'>
-        <% if Current.user.present? %>
-          <li><%= link_to 'New', ":new_post", class: 'btn btn-outline-primary btn-sm text-uppercase mt-1 me-2' %></li>
-
-          <li>
-            <%# if Current.user.posts.unscoped.draft.present? %>
-              <%= link_to 'Drafts', ":drafts", class: 'btn btn-outline-secondary btn-sm mt-1' %>
-            <%# end %>
-          </li>
-        <% end %>
+      <ul class='navbar-nav mb-2 justify-content-center mb-md-0'>
+        <li class='nav-item'>
+          <%= link_to 'Explore', :explore, class: 'nav-link active',  aria: { current: :page } %>
+        </li>
       </ul>
       <% end %>
 
       <div class='ms-auto'>
         <% if Current.user.present? %>
-          <%= link_to :settings, class: 'text-decoration-none ms-2' do %>
+          <%= link_to :settings, class: 'text-decoration-none ms-1' do %>
             <%= bootstrap_icon 'gear', width: 28, height: 28, fill: :gray %>
           <% end %>
 
-          <%= link_to Current.user.path, class: 'text-decoration-none ms-2' do %>
+          <%= link_to Current.user.path, class: 'text-decoration-none ms-1' do %>
             <%= avatar_image_tag user: Current.user, width: 28, shadow: false %>
           <% end %>
 
@@ -35,7 +29,6 @@
           <%= link_to 'Sign in',  :signin, class: 'btn' %>
           <%= link_to 'SIGN UP',  :signup, class: 'btn btn-primary btn-sm' %>
         <% end %>
-
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # /@profile
   def show
-    return redirect_to Current.user.path if request.path == '/profile'
+    return redirect_to Current.user.path if Current.user.present? && request.path == '/profile'
 
     @user = User.find_by username: params[:username]
 
@@ -26,21 +26,14 @@ class UsersController < ApplicationController
   def user_params
     params
       .require(:user)
-      .permit(
-        :adult_content,
-        :avatar,
-        :bio,
-        :birthday,
-        :email,
-        :location,
-        :name,
-        :password,
-        :password_confirmation,
-        :pronouns,
-        :show_age,
-        :website,
-        :username,
-        identity_documents: []
-      )
+      .permit :avatar,
+              :bio,
+              :email,
+              :location,
+              :name,
+              :password,
+              :password_confirmation,
+              :pronouns,
+              :username
   end
 end

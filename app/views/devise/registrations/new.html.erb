@@ -1,41 +1,45 @@
-<%= tag.div class: wrapper_row_classes do %>
-  <%= tag.div class: wrapper_columns_classes do %>
+<div class='container'>
+  <div class='row'>
+    <h1 class='display-3'>Sign up</h1>
 
-    <h2 class='display-4'>Sign up</h2>
+    <div class='col-12 col-md-10 col-lg-8 col-xl-6'>
+      <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |form| %>
+        <%= render 'forms/errors', resource: resource %>
 
-    <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |form| %>
-      <%= render 'forms/errors', resource: resource %>
+        <%= render 'forms/labeled_email_field',
+                    form: form,
+                    name: :email,
+                    placeholder: 'user@example.com',
+                    autofocus: true %>
 
-      <%= render 'forms/labeled_email_field', form: form, name: :email, placeholder: 'user@example.com' %>
+        <%= render 'forms/labeled_text_field',
+                    form: form,
+                    name: :username,
+                    placeholder: 'Username',
+                    autocomplete: 'username' %>
 
-      <div class='form-floating mb-3'>
-        <%= form.text_field :username, autofocus: false, placeholder: 'username', autocomplete: 'username', class: 'form-control form-control-lg' %>
-        <%= form.label :username %>
-      </div>
+        <div class='row'>
+          <div class='col-12 col-md-6'>
+            <%= render 'forms/labeled_password_field',
+                        form: form,
+                        name: :password %>
+          </div>
 
-      <div class='row'>
-        <div class='col-12 col-md-6'>
-          <%= render 'forms/labeled_password_field',
-                      form: form,
-                      name: :password %>
+          <div class='col-12 col-md-6'>
+            <%= render 'forms/labeled_password_field',
+                       form: form,
+                       name: :password_confirmation,
+                       label: 'Confirm your password' %>
+          </div>
         </div>
 
-        <div class='col-12 col-md-6'>
-          <%= render 'forms/labeled_password_field',
-                     form: form,
-                     name: :password_confirmation,
-                     label: 'Confirm your password' %>
-        </div>
-      </div>
+        <%= render 'forms/password_note' %>
 
-      <%= render 'forms/password_note' %>
+        <%= render 'forms/submit_button', form: form, label: 'Sign up' %>
+      <% end %>
 
-      <div class='form-actions'>
-        <%= form.submit 'Sign up' %>
-      </div>
-    <% end %>
+      <%= render 'devise/shared/links' %>
+    </div>
 
-    <%= render 'devise/shared/links' %>
-
-  <% end %>
-<% end %>
+  </div>
+</div>

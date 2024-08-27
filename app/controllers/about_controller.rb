@@ -1,5 +1,4 @@
 class AboutController < ApplicationController
-  def terms; end
-
   def privacy; end
+  def terms;   end
 end

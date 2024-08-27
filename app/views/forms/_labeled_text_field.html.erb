@@ -6,12 +6,12 @@
 
 <div class='form-floating mb-3'>
   <%= form.text_field name,
-                      autocomplete: (autocomplete || 'new-password'),
+                      autocomplete: autocomplete,
                       autofocus:    autofocus,
                       placeholder:  (placeholder || name),
                       class:        'form-control form-control-lg' %>
 
-  <%= form.label      name %>
+  <%= form.label      name, placeholder %>
 
   <% if note.present? %>
     <p class='form-text mb-3'>

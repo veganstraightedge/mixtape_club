@@ -1,0 +1,14 @@
+<% label ||= nil %>
+
+<% if mixtapes.present? %>
+  <ul class='list-unstyled'>
+    <% mixtapes.each do |mixtape| %>
+      <li>
+        <%= link_to mixtape.title, mixtape.path %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  No <%= label %> mixtapes currently
+<% end %>

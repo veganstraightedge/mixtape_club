@@ -1,0 +1,25 @@
+<div class='container'>
+  <h1 class='display-3'>Explore</h1>
+
+  <div id='mixtapes'>
+    <% @mixtapes.each do |mixtape| %>
+
+      <div id='<%= dom_id mixtape %>'>
+        <h2>
+          <%= link_to mixtape.path do %>
+            <b><%= mixtape.title %></b>
+            <% if mixtape.subtitle.present? %><br><%= mixtape.subtitle %><% end %>
+          <% end %>
+        </h2>
+
+        <p>
+          <i>by</i>
+          <%= link_to mixtape.user.handle, mixtape.user.path %>
+        </p>
+
+        <%= render_markdown mixtape.description %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

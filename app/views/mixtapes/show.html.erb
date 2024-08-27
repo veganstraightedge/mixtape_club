@@ -1,0 +1,52 @@
+<div class='container'>
+  <div id='<%= dom_id @mixtape %>'>
+
+    <header class='mb-3'>
+      <h1 class='display-1 lh-1 fw-bolder m-0'><%= @mixtape.title %></h1>
+
+      <% if @mixtape.subtitle.present? %>
+        <h2 class='display-6 fw-light m-0'><%= @mixtape.subtitle %></h2>
+      <% end %>
+
+      <p class='my-2'>
+        <%= visibility_badge @mixtape if @mixtape.user == Current.user %>
+
+        <i>by</i>
+        <%= link_to @mixtape.user.handle, @mixtape.user.path %>
+
+        <% if @mixtape.published_at.present? %>
+          <i>on</i>
+          <%= @mixtape.published_at %>
+        <% end %>
+      </p>
+    </header>
+
+    <% if @mixtape.user == Current.user %>
+      <div class='mb-3'>
+        <%= link_to 'Edit', [:edit, @mixtape], class: 'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+
+    <div class='col-12 col-lg-8 col-xl-6'>
+      <div class='mb-3'>
+        <%= cover_image_tag mixtape: @mixtape, width: 1200, height: 800 %>
+      </div>
+
+      <%= render_markdown @mixtape.description %>
+    </div>
+  </div>
+
+  <ol class='list-unstyled mt-5 pt-5'>
+    <% @mixtape.entries.order(:position).each do |entry| %>
+      <li class='mb-5'>
+        <% case entry.entryable_type %>
+        <% when 'Audio' %>
+        <%= render entry.audio %>
+        <% when 'Image' %>
+        <%= render entry.image %>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+
+</div>

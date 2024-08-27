@@ -2,31 +2,62 @@
   <div class='row'>
 
     <div class='col-4 col-lg-3'>
-      <div>
-        <%= avatar_image_tag user: Current.user, width: 300, tilt: true %>
-      </div>
+      <%= avatar_image_tag user: @user, width: 300, tilt: true %>
+
+      <%= link_to 'Edit profile', :settings, class: 'btn btn-outline-primary mt-4' %>
     </div>
 
     <div class='col-8 col-lg-9'>
-      <h1 class='fw-bold'><%= Current.user.handle %></h1>
-
-      <% if Current.user.name.present? %>
-        <h2 class='fw-light'><%= Current.user.name %></h2>
+      <% if @user.name.present? %>
+        <h2 class='fw-light mb-0'><%= @user.name %></h2>
       <% end %>
 
-      <% if Current.user.pronouns.present? %>
-        <p class='m-0 text-secondary'><%= Current.user.pronouns %></p>
+      <h1 class='fw-bold h2'><%= @user.handle %></h1>
+
+      <% if @user.pronouns.present? %>
+        <p class='m-0 text-secondary'><%= @user.pronouns %></p>
       <% end %>
 
-      <% if Current.user.location.present? %>
-        <p class='m-0'><%= Current.user.location %></p>
+      <% if @user.location.present? %>
+        <p class='m-0'><%= @user.location %></p>
       <% end %>
 
-      <% if Current.user.bio.present? %>
+      <% if @user.bio.present? %>
         <div class='my-3 d-none d-lg-block'>
-          <%= render_markdown Current.user.bio, inline_tags_only: true, user: Current.user %>
+          <%= render_markdown @user.bio, inline_tags_only: true, user: @user %>
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class='row mt-5'>
+    <div class='col-12 col-lg-9 offset-lg-3'>
+
+    <% if @user.mixtapes.published.present? %>
+      <h3 class='fw-light'>Published mixtapes</h3>
+
+      <% @user.mixtapes.published.each do |mixtape| %>
+        <div class='row mb-3'>
+
+          <div class='col-4 col-lg-2'>
+            <%= link_to cover_image_tag(mixtape:, width: 300), mixtape.path %>
+          </div>
+
+          <div class='col-8 col-lg-10'>
+            <%= link_to mixtape.path, class: 'text-decoration-none' do %>
+              <div class='m-0 fw-bold'><%= mixtape.title %></div>
+
+              <% if mixtape.subtitle.present? %>
+                <div><%= mixtape.subtitle %></div>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    <% else %>
+      <p>No published mixtapes yet</p>
+    <% end %>
+  </div>
   </div>
 </div>

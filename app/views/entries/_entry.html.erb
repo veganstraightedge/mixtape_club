@@ -1,0 +1,29 @@
+<p>
+  <% if entry.title.present? %>
+    <b><%= entry.title %></b>
+  <% end %>
+
+  <% if  entry.title.present? && entry.subtitle.present? %>
+    <br><%= entry.subtitle %>
+  <% end %>
+</p>
+
+<%= render_markdown entry.description %>
+
+<% if entry.attribution_creator_name.present? %>
+  by
+  <% if entry.attribution_url.present? %>
+    <%= link_to entry.attribution_creator_name, entry.attribution_url %>
+  <% else %>
+    <%= entry.attribution_creator_name %>
+  <% end %>
+<% end %>
+
+<% if entry.attribution_via_name.present? %>
+  via
+  <% if entry.attribution_via_url.present? %>
+    <%= link_to entry.attribution_via_name, entry.attribution_via_url %>
+  <% else %>
+    <%= entry.attribution_via_name %>
+  <% end %>
+<% end %>

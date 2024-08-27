@@ -1,0 +1,42 @@
+<%= form_with model: mixtape do |form| %>
+  <%= render 'forms/errors', resource: mixtape %>
+
+  <div class='mb-3'>
+    <% if mixtape.cover.attached? %>
+      <div class='mb-4'>
+        <%= cover_image_tag mixtape: mixtape, width: 600 %>
+        <%=  link_to 'Delete',
+                     [mixtape, :cover],
+                     class: 'btn btn-outline-danger btn-sm mt-2',
+                     data:  {
+                       turbo_method:  :delete,
+                       turbo_confirm: 'Are you sure you’re sure? There is NO UNDO.'
+                     } %>
+      </div>
+    <% end %>
+
+    <%= form.label :cover, class: 'form-label' %>
+    <%= form.file_field :cover, accept: '.jpg, .jpeg, .png, .gif', class: 'form-control form-control-lg' %>
+  </div>
+
+  <%= render 'forms/labeled_text_field', form: form, name: :title, placeholder: 'Title *required' %>
+  <%= render 'forms/labeled_text_field', form: form, name: :subtitle %>
+  <%= render 'forms/labeled_text_area',  form: form, name: :description, note: 'Rendered as Markdown' %>
+
+  <fieldset class='mb-3'>
+    <legend>Visibility</legend>
+    <% Mixtape.visibilities.keys.each do |visibility| %>
+      <%= form.radio_button :visibility,
+                            visibility,
+                            class: 'btn-check',
+                            autocomplete: 'off' %>
+
+      <%= form.label :visibility,
+                     visibility.to_s.humanize,
+                     value: visibility,
+                     class: "btn btn-outline-#{color_for_visibility visibility}" %>
+    <% end %>
+  </fieldset>
+
+  <%= render 'forms/submit_button', form: form %>
+<% end %>

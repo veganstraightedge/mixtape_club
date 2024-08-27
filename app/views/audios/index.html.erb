@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Audios</h1>
+
+<div id="audios">
+  <% @audios.each do |audio| %>
+    <%= render audio %>
+    <p>
+      <%= link_to "Show this audio", audio %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New audio", new_audio_path %>

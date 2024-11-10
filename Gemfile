@@ -4,7 +4,7 @@ ruby file: '.ruby-version'
 
 # app server
 gem 'bootsnap', require: false
-gem 'rails', '~> 7.1.3'
+gem 'rails', '~> 7.2.0'
 
 # database
 gem 'pg'
@@ -79,7 +79,7 @@ group :development, :test do
   gem 'rubocop-performance',   require: false
   gem 'rubocop-rails',         require: false
   gem 'rubocop-rspec',         require: false
-  gem 'rubocop-rspec_rails', require: false
+  gem 'rubocop-rspec_rails',   require: false
   gem 'rubocop-thread_safety', require: false
 end
 

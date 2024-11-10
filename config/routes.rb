@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   # Homepage for signed-in users
   authenticated :user do
-    root to: 'dashboard#show', as: :dashboard
+    root to: 'dashboard#index', as: :dashboard
   end
 
   # Profile

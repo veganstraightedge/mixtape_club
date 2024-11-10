@@ -4,7 +4,7 @@ ruby file: '.ruby-version'
 
 # app server
 gem 'bootsnap', require: false
-gem 'rails'
+gem 'rails', '~> 7.1.3'
 
 # database
 gem 'pg'
